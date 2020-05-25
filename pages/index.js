@@ -68,6 +68,15 @@ export default function Home() {
       <main className="max-w-screen-md mx-auto py-16 px-4">
         <h1 className="text-3xl">Image transformation API in NextJS</h1>
         <p className="mb-2 text-gray-700">
+          <span>Full tutorial </span>
+          <a
+            href="https://monoppa.com/blog/image-transformation-in-nextjs"
+            className="text-blue-600"
+          >
+            here
+          </a>
+        </p>
+        <p className="mb-2 text-gray-700">
           Open dev tools and inspect images. All are generated using the custom
           image transformation API.
         </p>
