@@ -67,9 +67,18 @@ export default function Home() {
 
       <main className="max-w-screen-md mx-auto py-16 px-4">
         <h1 className="text-3xl">Image transformation API in NextJS</h1>
-        <p className="mb-8 text-gray-700">
+        <p className="mb-2 text-gray-700">
           Open dev tools and inspect images. All are generated using the custom
-          image transformation API
+          image transformation API.
+        </p>
+        <p className="mb-2 text-gray-700">
+          Food images are transformed to 1080x810
+        </p>
+        <p className="mb-2 text-gray-700">
+          Author images are transformed to 100x100
+        </p>
+        <p className="mb-8 text-gray-700">
+          All original image assets are 1600x900 from Unsplash.com
         </p>
 
         <div className="space-y-8">
