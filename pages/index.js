@@ -28,6 +28,35 @@ const foodList = [
 const authorPic =
   "api/image/w=100&h=100/https%3A%2F%2Fsource.unsplash.com%2FmEZ3PoFGs_k%2F1600x900.jpg";
 
+const Card = ({ title, image, content }) => {
+  return (
+    <div className="flex flex-col md:flex-row bg-white rounded-lg p-4 shadow-xl">
+      <div className="w-full md:w-5/12 md:pr-4 pb-4 md:pb-0">
+        <img src={image} className="rounded-lg" alt={title} />
+      </div>
+
+      <div className="w-full md:w-7/12 flex flex-col justify-evenly">
+        <div>
+          <h1 className="text-2xl pb-2">{title}</h1>
+          <p className="text-base text-gray-700 font-light pb-4">{content}</p>
+        </div>
+
+        <div className="flex">
+          <img
+            src={authorPic}
+            alt="Naomi Watson"
+            className="rounded-full w-12 mr-4"
+          />
+          <div>
+            <p className="text-sm text-gray-800">Naomi Watson</p>
+            <p className="text-sm text-gray-600">May 24, 2020</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Home() {
   return (
     <div className="bg-gray-200">
@@ -36,7 +65,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="max-w-screen-md mx-auto py-16">
+      <main className="max-w-screen-md mx-auto py-16 px-4">
         <h1 className="text-3xl">Image transformation API in NextJS</h1>
         <p className="mb-8 text-gray-700">
           Open dev tools and inspect images. All are generated using the custom
@@ -44,33 +73,8 @@ export default function Home() {
         </p>
 
         <div className="space-y-8">
-          {foodList.map(({ title, image, content }) => (
-            <div className="flex bg-white rounded-lg p-4 shadow-xl" key={title}>
-              <div className="w-5/12 pr-4">
-                <img src={image} className="rounded-lg" alt={title} />
-              </div>
-
-              <div className="w-7/12 flex flex-col justify-evenly">
-                <div>
-                  <h1 className="text-2xl pb-2">{title}</h1>
-                  <p className="text-base text-gray-700 font-light pb-4">
-                    {content}
-                  </p>
-                </div>
-
-                <div className="flex">
-                  <img
-                    src={authorPic}
-                    alt="Naomi Watson"
-                    className="rounded-full w-12 mr-4"
-                  />
-                  <div>
-                    <p className="text-sm text-gray-800">Naomi Watson</p>
-                    <p className="text-sm text-gray-600">May 24, 2020</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {foodList.map((food) => (
+            <Card key={food.title} {...food} />
           ))}
         </div>
       </main>
