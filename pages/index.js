@@ -114,7 +114,7 @@ export default function Home() {
           <div className="pt-8 space-y-8">
             <div>
               <h3>Original source</h3>
-              <p className="text-gray-600 text-sm italic">{`original_src='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}</p>
+              <p className="text-gray-600 text-sm italic break-words">{`original_src='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}</p>
             </div>
 
             <div className="w-full">
