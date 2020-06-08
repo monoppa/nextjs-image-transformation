@@ -114,12 +114,20 @@ export default function Home() {
           <div className="pt-8 space-y-8">
             <div>
               <h3>Original source</h3>
-              <p className="text-gray-600 text-sm italic break-words">{`original_src='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}</p>
+              <p className="text-gray-600 text-sm italic break-words">
+                <span className="text-red-500 font-bold">original_src</span>
+                <span>
+                  {`='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}
+                </span>
+              </p>
             </div>
 
             <div className="w-full">
               <h3 className="text-gray-900 text-xl">Large image (1080x810)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=1080&h=810/original_src'`}</p>
+              <p className="text-gray-600 text-sm italic pb-4">
+                <span>{`src='api/image/w=1080&h=810/`}</span>
+                <span className="text-red-500 font-bold">original_src</span>
+              </p>
 
               <img
                 src="api/image/w=1080&h=810/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
@@ -130,7 +138,10 @@ export default function Home() {
 
             <div className="w-full">
               <h3 className="text-gray-900 text-xl">Medium image (400x300)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=400&h=300/original_src'`}</p>
+              <p className="text-gray-600 text-sm italic pb-4">
+                <span>{`src='api/image/w=400&h=300/`}</span>
+                <span className="text-red-500 font-bold">original_src</span>
+              </p>
 
               <img
                 src="api/image/w=400&h=300/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
@@ -141,7 +152,10 @@ export default function Home() {
 
             <div className="w-full">
               <h3 className="text-gray-900 text-xl">Small image (100x100)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=100&h=100/original_src'`}</p>
+              <p className="text-gray-600 text-sm italic pb-4">
+                <span>{`src='api/image/w=100&h=100/`}</span>
+                <span className="text-red-500 font-bold">original_src</span>
+              </p>
 
               <img
                 src="api/image/w=100&h=100/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
