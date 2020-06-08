@@ -1,5 +1,6 @@
 import Head from "next/head";
 import faker from "faker";
+import { useState } from "react";
 
 const foodList = [
   {
@@ -58,6 +59,8 @@ const Card = ({ title, image, content }) => {
 };
 
 export default function Home() {
+  const [showMore, showMoreSet] = useState(false);
+
   return (
     <div className="bg-gray-200">
       <Head>
@@ -95,6 +98,59 @@ export default function Home() {
             <Card key={food.title} {...food} />
           ))}
         </div>
+
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => {
+              showMoreSet(!showMore);
+            }}
+            className="px-6 py-3 bg-blue-600 text-white rounded-md uppercase shadow-md"
+          >
+            More image sizes
+          </button>
+        </div>
+
+        {showMore && (
+          <div className="pt-8 space-y-8">
+            <div>
+              <h3>Original source</h3>
+              <p className="text-gray-600 text-sm italic">{`original_src='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}</p>
+            </div>
+
+            <div className="w-full">
+              <h3 className="text-gray-900 text-xl">Large image (1080x810)</h3>
+              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=1080&h=810/original_src'`}</p>
+
+              <img
+                src="api/image/w=1080&h=810/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+                className="rounded-lg"
+                alt="large"
+              />
+            </div>
+
+            <div className="w-full">
+              <h3 className="text-gray-900 text-xl">Medium image (400x300)</h3>
+              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=400&h=300/original_src'`}</p>
+
+              <img
+                src="api/image/w=400&h=300/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+                className="rounded-lg"
+                alt="medium"
+              />
+            </div>
+
+            <div className="w-full">
+              <h3 className="text-gray-900 text-xl">Small image (100x100)</h3>
+              <p className="text-gray-600 text-sm italic pb-4">{`src='api/image/w=100&h=100/original_src'`}</p>
+
+              <img
+                src="api/image/w=100&h=100/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+                className="rounded-lg"
+                alt="small"
+              />
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
