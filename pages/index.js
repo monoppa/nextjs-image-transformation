@@ -70,7 +70,7 @@ export default function Home() {
 
       <main className="max-w-screen-md mx-auto py-16 px-4">
         <h1 className="text-3xl">Image transformation API in NextJS</h1>
-        <p className="mb-2 text-gray-700">
+        <p className="mb-12 text-gray-700">
           <span>Full tutorial </span>
           <a
             href="https://monoppa.com/blog/image-transformation-in-nextjs"
@@ -79,91 +79,102 @@ export default function Home() {
             here
           </a>
         </p>
-        <p className="mb-2 text-gray-700">
-          Open dev tools and inspect images. All are generated using the custom
-          image transformation API.
-        </p>
-        <p className="mb-2 text-gray-700">
-          Food images are transformed to 1080x810
-        </p>
-        <p className="mb-2 text-gray-700">
-          Author images are transformed to 100x100
-        </p>
-        <p className="mb-8 text-gray-700">
-          All original image assets are 1600x900 from Unsplash.com
-        </p>
 
-        <div className="space-y-8">
-          {foodList.map((food) => (
-            <Card key={food.title} {...food} />
-          ))}
-        </div>
+        <section className="space-y-8">
+          <div>
+            <div className="flex">
+              <h3>Original source</h3>
+              <a
+                target="_blank"
+                href="https://source.unsplash.com/P1aohbiT-EY/1600x900.jpg"
+                className="ml-1 text-blue-600"
+              >
+                (see photo)
+              </a>
+            </div>
+            <p className="text-gray-600 text-sm italic break-words">
+              <span className="text-red-500 font-bold">original_src</span>
+              <span>
+                {`='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}
+              </span>
+            </p>
+          </div>
 
-        <div className="flex justify-center mt-8">
+          <div className="w-full">
+            <h3 className="text-gray-900 text-xl">Large image (1080x810)</h3>
+            <p className="text-gray-600 text-sm italic pb-4">
+              <span>{`src='api/image/w=1080&h=810/`}</span>
+              <span className="text-red-500 font-bold">original_src</span>
+            </p>
+
+            <img
+              src="api/image/w=1080&h=810/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+              className="rounded-lg"
+              alt="large"
+            />
+          </div>
+
+          <div className="w-full">
+            <h3 className="text-gray-900 text-xl">Medium image (400x300)</h3>
+            <p className="text-gray-600 text-sm italic pb-4">
+              <span>{`src='api/image/w=400&h=300/`}</span>
+              <span className="text-red-500 font-bold">original_src</span>
+            </p>
+
+            <img
+              src="api/image/w=400&h=300/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+              className="rounded-lg"
+              alt="medium"
+            />
+          </div>
+
+          <div className="w-full">
+            <h3 className="text-gray-900 text-xl">Small image (100x100)</h3>
+            <p className="text-gray-600 text-sm italic pb-4">
+              <span>{`src='api/image/w=100&h=100/`}</span>
+              <span className="text-red-500 font-bold">original_src</span>
+            </p>
+
+            <img
+              src="api/image/w=100&h=100/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
+              className="rounded-lg"
+              alt="small"
+            />
+          </div>
+        </section>
+
+        <div className="flex justify-center my-8">
           <button
             onClick={() => {
               showMoreSet(!showMore);
             }}
             className="px-6 py-3 bg-blue-600 text-white rounded-md uppercase shadow-md"
           >
-            More image sizes
+            Show card usage
           </button>
         </div>
 
         {showMore && (
-          <div className="pt-8 space-y-8">
-            <div>
-              <h3>Original source</h3>
-              <p className="text-gray-600 text-sm italic break-words">
-                <span className="text-red-500 font-bold">original_src</span>
-                <span>
-                  {`='https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg'`}
-                </span>
-              </p>
+          <section>
+            <p className="mb-2 text-gray-700">
+              Open dev tools and inspect images. All are generated using the
+              custom image transformation API.
+            </p>
+            <p className="mb-2 text-gray-700">
+              Food images are transformed to 1080x810
+            </p>
+            <p className="mb-2 text-gray-700">
+              Author images are transformed to 100x100
+            </p>
+            <p className="mb-8 text-gray-700">
+              All original image assets are 1600x900 from Unsplash.com
+            </p>
+            <div className="space-y-8">
+              {foodList.map((food) => (
+                <Card key={food.title} {...food} />
+              ))}
             </div>
-
-            <div className="w-full">
-              <h3 className="text-gray-900 text-xl">Large image (1080x810)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">
-                <span>{`src='api/image/w=1080&h=810/`}</span>
-                <span className="text-red-500 font-bold">original_src</span>
-              </p>
-
-              <img
-                src="api/image/w=1080&h=810/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
-                className="rounded-lg"
-                alt="large"
-              />
-            </div>
-
-            <div className="w-full">
-              <h3 className="text-gray-900 text-xl">Medium image (400x300)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">
-                <span>{`src='api/image/w=400&h=300/`}</span>
-                <span className="text-red-500 font-bold">original_src</span>
-              </p>
-
-              <img
-                src="api/image/w=400&h=300/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
-                className="rounded-lg"
-                alt="medium"
-              />
-            </div>
-
-            <div className="w-full">
-              <h3 className="text-gray-900 text-xl">Small image (100x100)</h3>
-              <p className="text-gray-600 text-sm italic pb-4">
-                <span>{`src='api/image/w=100&h=100/`}</span>
-                <span className="text-red-500 font-bold">original_src</span>
-              </p>
-
-              <img
-                src="api/image/w=100&h=100/https%3A%2F%2Fsource.unsplash.com%2FP1aohbiT-EY%2F1600x900.jpg"
-                className="rounded-lg"
-                alt="small"
-              />
-            </div>
-          </div>
+          </section>
         )}
       </main>
     </div>
